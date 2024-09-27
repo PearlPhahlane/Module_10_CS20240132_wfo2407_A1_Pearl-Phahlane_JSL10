@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 🪲 Bug: Incorrect ID used for attaching the event listener
+    // P: Room 1
     document.getElementById("solveRoom1").addEventListener("click", () => {
         fetch('books.json') 
             .then(response => response.json())
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(directions => {
                 navigateLabyrinth(directions)
                     .then(message => {
-                        // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").innerHTML = message;
+                        
+                        document.getElementById("room3Result").textContent = message;
                     });
             });
     });
