@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 
+    //P: Room 2
     function findIntersection(set1, set2) {
         return new Set([...set1]. filter(x => set2.has(x)));
     }
