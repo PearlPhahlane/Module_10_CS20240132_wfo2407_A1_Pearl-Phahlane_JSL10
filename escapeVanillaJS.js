@@ -23,17 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
-    // 🪲 Bug: Asynchronous function ?
-    document.getElementById("solveRoom3").addEventListener("click", () => {
-        fetch('directions.json') 
-            .then(response => response.json())
-            .then(directions => {
-                navigateLabyrinth(directions)
-                    .then(message => {
-                        
-                        document.getElementById("room3Result").textContent = message;
-                    });
-            });
+
+    //P: Room 3
+    document.getElementById("solveRoom3").addEventListener("click", async () => {
+        try {
+            const response = await fetch('directions.json');
+            const directions = await response.json();
+            const message = await navigateLabyrinth(directions);
+            document.getElementById("room3Result").textContent = message;
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById("room3Result").textContent = 'An error occurred while navigating the labyrinth.';
+        }
     });
 });
 
