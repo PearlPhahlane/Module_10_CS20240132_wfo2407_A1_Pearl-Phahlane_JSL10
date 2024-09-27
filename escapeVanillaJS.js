@@ -10,8 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 
+    function findIntersection(set1, set2) {
+        return new Set([...set1]. filter(x => set2.has(x)));
+    }
     document.getElementById("solveRoom2").addEventListener("click", () => {
-        const jsConcepts = new Set(['closure', 'scope', 'hoisting', 'promise']);
+        const jsConcepts = new Set(['closure', 'scope', 'hoisting', 'async']);
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
